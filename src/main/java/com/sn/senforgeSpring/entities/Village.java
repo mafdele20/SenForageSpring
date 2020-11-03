@@ -9,12 +9,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+
+
 
 
 @Entity
 public class Village implements Serializable{
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY )
 	private Long id;
+    @NotNull
+    @Size(min=2,max=22)
 	private String nomV;
 	@OneToMany(mappedBy="village")
     private List<Client> clients = new ArrayList<Client>();

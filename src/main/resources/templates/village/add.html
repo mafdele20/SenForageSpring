@@ -159,39 +159,20 @@
         </div>
       
     </div>
- 		<form th:action="@{saveClient}" method="post">
+ 		<form th:action="@{saveVillage}" method="post">
         <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">NOM DE FAMILLE</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">NOM DU VILLAGE</label>
             <div class="col-sm-12 col-md-10">
                
-	            <input type="text" class="form-control" name="nomF" value="" required="required" th:value="${cl.nomF}"/>
-	             <span th:errors=" ${cl.nomF}"></span>
+	            <input type="text" class="form-control" name="nomV" value="" required="required" th:value="${vil.nomV}"/>
+	             <span th:errors=" ${vil.nomV}"></span>
             </div>
-        </div>
-        <div class="form-group row">
-              <label class="col-sm-12 col-md-2 col-form-label">Telephone</label>
-            <div class="col-sm-12 col-md-10">
-
-	            <input type="text" class="form-control" name="telephone" th:value="${cl.telephone}"/>
-	             <span th:errors="${cl.telephone}"></span>
-            </div>
-        </div>
-            <div class="form-group row">
-					<label class="col-sm-12 col-md-2 col-form-label">Village</label>
-					<div class="col-sm-12 col-md-10">
-				
-						 <select class="custom-select col-12" name="village" >		
-							<option value="" >Faite votre choix</option>	
-							<option th:each="v:${villages}" th:utext="${v.nomV}" th:value="${v.id}"></option>			         
-						 </select>
-						   <span th:errors="${cl.id}"></span>
-					</div>
-			</div>
-	           
   			   <div>
 	             <button class="btn btn-primary">Enregistrer</button>
 	           </div>
-</form>
+	        </div>
+		</form>
+			
             </code></pre>
         </div>
          <p> </p>

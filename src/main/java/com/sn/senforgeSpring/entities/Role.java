@@ -9,12 +9,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Role implements Serializable {
 	
     @Id @GeneratedValue  ( strategy=GenerationType.IDENTITY )
 	private Long id;
+    @NotNull
+    @Size(min=3, max=11)
 	private String libelle;
 	@OneToMany(mappedBy="role")
     private List<User> users = new ArrayList<User>();

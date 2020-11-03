@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -14,9 +16,16 @@ public class User implements Serializable{
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY )
 	 private Long id;
+    @NotNull
+    @Size(min=2, max=12)
 	 private String nom;
+    @NotNull
+    @Size(min=3, max=12)
 	 private String prenom;
+    @NotNull
 	 private String email;
+    @NotNull
+    @Size(min=9, max=9)
 	 private String password;
 	@ManyToOne
 	 private Role role = new Role();

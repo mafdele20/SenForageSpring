@@ -2,10 +2,14 @@ package com.sn.senforgeSpring.web;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sn.senforgeSpring.dao.ClientRepository;
 import com.sn.senforgeSpring.dao.VillageRepository;
@@ -41,9 +45,12 @@ public class ClientController {
 	}
 	
 	
-   @RequestMapping(value="/saveClient")
-   public String save(Model model ,Client cl) { 
-	 
+   @RequestMapping(value="/saveClient" ,method = RequestMethod.POST)
+   public String save(Model model , @Valid Client cl, BindingResult bindingResult) { 
+
+	  if(bindingResult.hasErrors()) 
+		  return "redirect:/ajoutClient"; 
+		 
 	   clRepo.save(cl);
 	   return "redirect:/clients";
    }
