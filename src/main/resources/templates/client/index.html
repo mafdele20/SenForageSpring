@@ -73,20 +73,11 @@
 			</div>
 			<div class="user-info-dropdown">
 				<div class="dropdown">
-					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+					<a class="dropdown-toggle"  th:href="@{login?logout}"role="button" data-toggle="dropdown">
 						<span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt=""/>
 						</span>
-			<!-- 		<%-- 	<%
-					      if (session != null) {
-					         if (session.getAttribute("user") != null) {
-					            User user = (User) session.getAttribute("user");
-					            out.print("Bienvenue, " + user.getNom());
-					         } else {
-					            response.sendRedirect("login.html");
-					         }
-					      }
-					   %> --%> -->
+								<span class="user-name" th:inline="text">[[${#httpServletRequest.remoteUser}]]</span>
 										</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
@@ -181,7 +172,7 @@
 					          <td th:utext="${c.village.nomV}"></td>
 					          <td th:utext="${c.telephone}"></td>
 					           <td> <a onclick="return confirm('voulez vous supprimer')" th:href="@{delete(id=${c.id})}">delete</a> </td>
-					          <td> <a href="EditClient.php?id=${c.id}">edit</a> </td>
+					          <td> <a th:href="@{editClient(id=${c.id})}">edit</a> </td>
 					         </tr>
 		
 	         		</tbody>

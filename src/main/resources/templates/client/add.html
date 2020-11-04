@@ -6,33 +6,50 @@
 	<title>Clients</title>
 
 	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="../public/vendors/images/apple-touch-icon.png"/>
-		<link rel="apple-touch-icon" sizes="180x180" th:href="@{public/vendors/images/apple-touch-icon.png}"/>
-	<link rel="icon" type="image/png" sizes="32x32" href="../public/vendors/images/favicon-32x32.png"/>
-	<link rel="icon" type="image/png" sizes="32x32" th:href="@{public/vendors/images/favicon-32x32.png}"/>
-	<link rel="icon" type="image/png" sizes="16x16" href="../public/vendors/images/favicon-16x16.png"/>
-	<link rel="icon" type="image/png" sizes="16x16" th:href="@{public/vendors/images/favicon-16x16.png}"/>
+		<link rel="apple-touch-icon" sizes="180x180" 
+		 href="../public/vendors/images/apple-touch-icon.png"
+		th:href="@{public/vendors/images/apple-touch-icon.png}"/>
+
+	<link rel="icon" type="image/png" sizes="32x32"
+	href="../public/vendors/images/favicon-32x32.png"
+	th:href="@{public/vendors/images/favicon-32x32.png}"/>
+	
+	<link rel="icon" type="image/png" sizes="16x16" 
+	href="../public/vendors/images/favicon-16x16.png"
+	th:href="@{public/vendors/images/favicon-16x16.png}"/>
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-		<link th:href="@{https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap}" rel="stylesheet"/>
+
+		<link 
+		th:href="@{https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap}" rel="stylesheet"/>
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../public/vendors/styles/core.css"/>
-	<link rel="stylesheet" type="text/css" th:href="@{public/vendors/styles/core.css}"/>
-	<link rel="stylesheet" type="text/css" href="../public/vendors/styles/icon-font.min.css"/>
-	<link rel="stylesheet" type="text/css" th:href="@{public/vendors/styles/icon-font.min.css}"/>
-	<link rel="stylesheet" type="text/css" href="..public/src/plugins/datatables/css/dataTables.bootstrap4.min.css"/>
-	<link rel="stylesheet" type="text/css" th:href="@{public/src/plugins/datatables/css/dataTables.bootstrap4.min.css}"/>
-	<link rel="stylesheet" type="text/css" href="../public/src/plugins/datatables/css/responsive.bootstrap4.min.css"/>
-	<link rel="stylesheet" type="text/css" th:href="@{public/src/plugins/datatables/css/responsive.bootstrap4.min.css}"/>
-	<link rel="stylesheet" type="text/css" href="../public/vendors/styles/style.css">
-	<link rel="stylesheet" type="text/css" th:href="@{public/vendors/styles/style.css}">
+
+	<link rel="stylesheet" type="text/css" 
+	href="../public/vendors/styles/core.css"
+	th:href="@{public/vendors/styles/core.css}"/>
+	
+	<link rel="stylesheet" type="text/css" 
+	href="../public/vendors/styles/icon-font.min.css"
+	th:href="@{public/vendors/styles/icon-font.min.css}"/>
+
+	<link rel="stylesheet" type="text/css"
+	href="..public/src/plugins/datatables/css/dataTables.bootstrap4.min.css"
+	 th:href="@{public/src/plugins/datatables/css/dataTables.bootstrap4.min.css}"/>
+	 
+
+	<link rel="stylesheet" type="text/css" 
+	 href="../public/src/plugins/datatables/css/responsive.bootstrap4.min.css"
+	th:href="@{public/src/plugins/datatables/css/responsive.bootstrap4.min.css}"/>
+
+	<link rel="stylesheet" type="text/css" 
+	href="../public/vendors/styles/style.css"
+	th:href="@{public/vendors/styles/style.css}"/>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -72,17 +89,17 @@
 			</div>
 			<div class="user-info-dropdown">
 				<div class="dropdown">
-					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+					<a class="dropdown-toggle"  th:href="@{login?logout}" role="button" data-toggle="dropdown">
 						<span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt="">
 						</span>
-						<span class="user-name">Mafatime Gadiaga</span>
+						<span class="user-name" th:inline="text">[[${#httpServletRequest.remoteUser}]]</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
 						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="login.jsp"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" th:href="@{login?logout}"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
@@ -161,11 +178,11 @@
     </div>
  		<form th:action="@{saveClient}" method="post">
         <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">NOM DE FAMILLE</label>
+                      <label class="col-sm-12 col-md-2 col-form-label">NOM DE FAMILLE</label>
             <div class="col-sm-12 col-md-10">
                
-	            <input type="text" class="form-control" name="nomF" value="" required="required" th:value="${cl.nomF}"/>
-	             <span th:errors=" ${cl.nomF}"></span>
+	            <input type="text" class="form-control" name="nomF"  required="required" th:value="${cl.nomF}"/>
+	             <span th:errors="${cl.nomF}"></span>
             </div>
         </div>
         <div class="form-group row">
@@ -184,7 +201,7 @@
 							<option value="" >Faite votre choix</option>	
 							<option th:each="v:${villages}" th:utext="${v.nomV}" th:value="${v.id}"></option>			         
 						 </select>
-						   <span th:errors="${cl.id}"></span>
+						 
 					</div>
 			</div>
 	           
@@ -209,8 +226,8 @@
 
 
 	<!-- js -->
-	<script src="public/vendors/scripts/core.js"></script>
-	<script src="public/vendors/scripts/script.min.js"></script>
+	<script  src="public/vendors/scripts/core.js"></script>
+	<script  src="public/vendors/scripts/script.min.js"></script>
 	<script src="public/vendors/scripts/process.js"></script>
 	<script src="public/vendors/scripts/layout-settings.js"></script>
 	<script src="public/src/plugins/apexcharts/apexcharts.min.js"></script>

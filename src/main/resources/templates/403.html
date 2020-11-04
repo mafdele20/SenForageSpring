@@ -43,6 +43,7 @@
 </head>
 <body>
 
+
 	<div class="header">
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
@@ -107,13 +108,14 @@
 					<button class="btn btn-danger" id="reset-settings">Reset Settings</button>
 				</div>
 			</div>
-
+		</div>
+	</div>
 
 	<div class="left-side-bar">
 		<div class="brand-logo">
 			<a href="index.html">
-				<img src="vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
-				<img src="vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
+				<img src="vendors/images/deskapp-logo.svg" alt="" class="dark-logo"/>
+				<img src="vendors/images/deskapp-logo-white.svg" alt="" class="light-logo"/>
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -123,7 +125,7 @@
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li class="dropdown">
-						<a th:href="@{javascript:;}" class="dropdown-toggle">
+						<a href="javascript:;" class="dropdown-toggle">
 							<span class=""></span><span class="mtext">Clients</span>
 						</a>
 						<ul class="submenu">
@@ -148,70 +150,14 @@
 	</div>
 	<div class="mobile-menu-overlay"></div>
 
-<div class="main-container">
-	
-	       <!-- Default Basic Forms Start -->
-<div class="pd-20 card-box mb-30">
-    <div class="clearfix">
-        <div class="pull-left">
-            <h4 class="text-blue h4">Espace Responsable</h4>
-            <p class="mb-30">Inscription Client</p>
-        </div>
-      
-    </div>
- 		<form th:action="@{saveClient}" method="post">
- 		  <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">ID</label>
-            <div class="col-sm-12 col-md-10">
-                <input type="text" class="form-control" name="id"  required="required" th:value="${cl.id}"/>
-            </div>
-        </div>
-        <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">NOM DE FAMILLE</label>
-            <div class="col-sm-12 col-md-10">     
-	            <input type="text" class="form-control" name="nomF"  required="required" th:value="${cl.nomF}"/>
-	             <span th:errors="${cl.telephone}"></span>
-            </div>
-        </div>
-        <div class="form-group row">
-              <label class="col-sm-12 col-md-2 col-form-label">Telephone</label>
-            <div class="col-sm-12 col-md-10">
-
-	            <input type="text" class="form-control" name="telephone" th:value="${cl.telephone}"/>
-	             <span th:errors="${cl.telephone}"></span>
-            </div>
-        </div>
-            <div class="form-group row">
-					<label class="col-sm-12 col-md-2 col-form-label">Village</label>
-					<div class="col-sm-12 col-md-10">
-							
-						 <select class="custom-select col-12" name="village" >		
-							<option value="" >Faite votre choix</option>	
-							<option th:each="v:${villages}" th:utext="${v.nomV}" th:value="${v.id}"></option>			         
-						 </select>
-					</div>
-					 <span th:errors="${cl.telephone}"></span>
+	<div class="main-container">
+			<div class="card-box mb-30">
+			  <h2 class="center"> Vous pouvez pas faire cette action </h2>
 			</div>
-	           
-  			   <div>
-	             <button class="btn btn-primary">Enregistrer</button>
-	           </div>
-</form>
-            </code></pre>
-        </div>
-         <p> </p>
-	<div class="footer-wrap pd-20 mb-20 card-box" >
-     	Senforage  by <a href="https://github.com/mafdele20" target="_blank">Mafatime Gadiaga</a>
-	</div>
-    </div>
-
-<!-- Default Basic Forms End -->
-
-	
-
-
- 
-
+			<div class="footer-wrap pd-20 mb-20 card-box">
+				Senforage  by <a href="https://github.com/mafdele20" target="_blank">Mafatime Gadiaga</a>
+			</div>
+		</div>
 
 	<!-- js -->
 	<script src="public/vendors/scripts/core.js"></script>

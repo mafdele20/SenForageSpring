@@ -176,7 +176,7 @@
 					         <tr th:each="v:${listeVillages}"> 
 					          <td th:utext="${v.id}"> </td>
 					          <td th:utext="${v.nomV}"></td>
-					           <td> <a onclick="return confirm('voulez vous supprimer')" th:href="@{delete(id=${v.id})}">delete</a> </td>
+					           <td> <a onclick="return confirm('voulez vous supprimer')" th:href="@{deleteV(id=${v.id})}">delete</a> </td>
 					          <td> <a href="EditClient.php?id=${v.id}">edit</a> </td>
 					         </tr>
 		
@@ -189,15 +189,17 @@
 		</div>
 
 	<!-- js -->
-	<script src="public/vendors/scripts/core.js"></script>
-	<script src="public/vendors/scripts/script.min.js"></script>
-	<script src="public/vendors/scripts/process.js"></script>
-	<script src="public/vendors/scripts/layout-settings.js"></script>
-	<script src="public/src/plugins/apexcharts/apexcharts.min.js"></script>
-	<script src="public/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="public/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-	<script src="public/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-	<script src="public/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-	<script src="public/vendors/scripts/dashboard.js"></script>
+	
+	<script th:src="@{public/vendors/scripts/core.js}"></script>
+	
+	<script th:src="@{public/vendors/scripts/script.min.js}"></script>
+	<script th:src="@{public/vendors/scripts/process.js}"></script>
+	<script th:src="@{public/vendors/scripts/layout-settings.js}"></script>
+	<script th:src="@{public/src/plugins/apexcharts/apexcharts.min.js}"></script>
+	<script th:src="@{public/src/plugins/datatables/js/jquery.dataTables.min.js}"></script>
+	<script th:src="@{public/src/plugins/datatables/js/dataTables.bootstrap4.min.js}"></script>
+	<script th:src="@{public/src/plugins/datatables/js/dataTables.responsive.min.js}"></script>
+	<script th:src="@{public/src/plugins/datatables/js/responsive.bootstrap4.min.js}"></script>
+	<script th:src="@{public/vendors/scripts/dashboard.js}"></script>
 </body>
 </html>

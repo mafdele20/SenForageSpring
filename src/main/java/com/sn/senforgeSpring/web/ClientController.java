@@ -45,14 +45,37 @@ public class ClientController {
 	}
 	
 	
+	@RequestMapping(value = "/editClient")
+	public String editClient(Model model, Long id){
+		
+	 List<Village> villages = vRepo.findAll();
+	   model.addAttribute("villages", villages);
+	   model.addAttribute("cl",clRepo.getOne(id)); 
+	   return  "client/edit";	
+	}
+	
+	
    @RequestMapping(value="/saveClient" ,method = RequestMethod.POST)
    public String save(Model model , @Valid Client cl, BindingResult bindingResult) { 
 
 	  if(bindingResult.hasErrors()) 
-		  return "redirect:/ajoutClient"; 
+		  return  "client/add";	
+	
 		 
 	   clRepo.save(cl);
 	   return "redirect:/clients";
+   }
+   
+   @RequestMapping(value="/")
+   public String home() { 
+	   return "redirect:/clients";
+	
+   }
+   
+   @RequestMapping(value="/403")
+   public String accessDenied() { 
+	   return "/403";
+	
    }
    
 }
